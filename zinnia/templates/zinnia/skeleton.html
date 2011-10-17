@@ -1,0 +1,61 @@
+{% load zinnia_tags i18n %}
+{% get_tags as entry_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="public" />
+    <meta name="robots" content="follow, all" />
+    <meta name="language" content="{{ LANGUAGE_CODE }}" />
+    <meta name="description" content="{% block meta-description %}Midwest cooking, dinning and food with a twist.{% endblock %}" />
+    <meta name="keywords" content="{% block meta-keywords %}Recipes, Midwest, food {{ entry_tags|join:", "}}{% endblock %}" />
+    <meta name="author" content="Fantomas42" />
+    {% block meta %}{% endblock %}
+    <link rel="pingback" href="/xmlrpc/" />
+    <link rel="shortcut icon" href="{{ ZINNIA_MEDIA_URL }}img/favicon.ico" />
+    <link rel="home" href="{% url zinnia_entry_archive_index %}" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="{{ ZINNIA_MEDIA_URL }}css/screen.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="{{ ZINNIA_MEDIA_URL }}css/print.css" />
+    <script src="{{ ZINNIA_MEDIA_URL }}js/modernizr.custom.16936.js"></script>
+    <!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{ ZINNIA_MEDIA_URL }}css/ie.css" />
+    <![endif]-->
+    {% block link %}{% endblock %}
+    {% block script %}{% endblock %}
+    <title>Better Than Cheddar - {% block title %}{% endblock %}</title>
+  </head>
+  <body id="zinnia">
+	<div class="container">
+		<header class="span-24 last">
+			<h1>
+			<a href="{% url zinnia_entry_archive_index %}" title="Better Than Cheddar" rel="home">
+			Better Than Cheddar
+			</a>
+			</h1>
+		</header>
+		<nav class="categories">
+			{% get_categories %}
+			<form method="get" id="searchform" action="{% url zinnia_entry_search %}">
+			<label for="pattern">Search</label>
+			<input type="text" value="{% trans "Keywords..." %}" name="pattern" id="searchbox" onfocus="this.value=''" />
+			<input type="submit" class="submitbutton" value="OK" />
+			</form>
+		</nav>
+		<div id="content" class="hfeed span-16 border">
+			{% block content %}
+			<h3>The content block need to be overrided!</h3>
+			{% endblock %}
+		</div>
+		
+		{% block sidebar %}
+		{% endblock %}
+		
+		
+		<footer class="span-24 last">
+		
+		</footer>
+	</div>
+  </body>
+</html>
+
+
