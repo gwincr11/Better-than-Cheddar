@@ -2,14 +2,15 @@
 import os
 import django,socket
 
+if socket.gethostname() != 'Macintosh.local':
+	#external settings file for production server
+	from settings_production import *
 
-APP_ROOT = os.path.dirname(os.path.realpath(__file__))
-# calculated paths for django and the site
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+else:
+	#external settings for local test server
+	from settings_local import *
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-THUMBNAIL_DEBUG = False
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -17,16 +18,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'btc',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -51,14 +42,6 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = SITE_ROOT +"/media"
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://localhost:8000/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
