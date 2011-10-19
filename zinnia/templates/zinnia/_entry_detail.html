@@ -1,6 +1,6 @@
-{% load tagging_tags comments i18n %}
+{% load tagging_tags comments i18n thumbnail %}
 
-<header class="entry-header span-16 last">
+<header class="entry-header">
   <h1 class="entry-title">
     <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
       {{ object.title }}
@@ -27,11 +27,13 @@
   </p>
 </header>
 
-<section class="entry-body span-16 last">
+<section class="entry-body">
   {% if object.image %}
   <div class="entry-image">
       <a href="{{ object.get_absolute_url }}" rel="bookmark">
-	<img src="{{ object.image.url }}" alt="{{ object.title }}" class="left" />
+	{% thumbnail object.image "550" upscale=false as im %}
+    <img src="{{ im.url }}" alt="{{ object.title }}" class="left">
+	{% endthumbnail %}
       </a>
   </div>
   {% endif %}
@@ -41,7 +43,7 @@
 </section>
 
 
-<footer class="entry-tags span-16 last">
+<footer class="entry-tags">
   <strong>{% trans "Tags" %}</strong> :
   {% tags_for_object object as tag_list %}
   {% for tag in tag_list %}

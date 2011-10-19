@@ -314,8 +314,8 @@ class EntryAdmin(admin.ModelAdmin):
             js=('%sjs/jquery.js' % MEDIA_URL,
                 '%sjs/jquery.bgiframe.js' % MEDIA_URL,
                 '%sjs/jquery.autocomplete.js' % MEDIA_URL,
-                '%stiny_mce/tiny_mce.js' % globalsSettings.STATIC_URL,
-                '%sgrappelli/tinymce_setup/tinymce_setup.js' % globalsSettings.STATIC_URL,
+                #'%stiny_mce/tiny_mce.js' % globalsSettings.STATIC_URL,
+                #'%sgrappelli/tinymce_setup/tinymce_setup.js' % globalsSettings.STATIC_URL,
                 reverse('admin:zinnia_entry_autocomplete_tags'),))
 
         if settings.WYSIWYG == 'wymeditor':

@@ -36,13 +36,13 @@
 {% endblock %}
 
 {% block content %}
-<article id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %} span-16 last">
+<article id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %}">
   {% with object.html_content|safe as object_content %}
   {% include "zinnia/_entry_detail.html" %}
   {% endwith %}
 </article>
 
-<section class="entry-widgets span-16 last">
+<section class="entry-widgets">
   {% with object.next_entry as next_entry %}
   {% if next_entry %}
   <div class="entry-next">
@@ -89,18 +89,18 @@
   </div>
 </section>
 
-<section id="comments" class="span-16 last">
+<section id="comments" class="">
   <h3>{% trans "Comments" %}</h3>
   {% with object.comments as comment_list %}
   {% if comment_list.count %}
-  <ol id="comment-list" class="span-15 last">
+  <ol id="comment-list" class="">
     {% for comment in comment_list %}
     <li id="comment_{{ comment.pk }}" class="comment vcard {% cycle box1,box2 %}{% if comment.user in object.authors.all %} post-author{% endif %} span-15 last">
       <div class="span-2">
 	<img src="{% get_gravatar comment.email 60 "G" %}" class="gravatar photo" alt="{{ comment.user_name }}"/>
       </div>
-      <div class="comment-body span-13 last">
-	<div class="comment-author span-13 last">
+      <div class="comment-body">
+	<div class="comment-author">
 	  {% if comment.url %}
 	  <a href="{{ comment.url }}" class="fn url">{{ comment.user_name }}</a>
 	  {% else %}
@@ -108,7 +108,7 @@
 	  {% endif %}
 	  {% trans "on" %} {{ comment.submit_date|date:"SHORT_DATETIME_FORMAT" }}
 	</div>
-	<div class="span-13 last">
+	<div class="">
 	  <cite>
 	    {{ comment.comment|linebreaks }}
 	  </cite>
@@ -131,7 +131,7 @@
 </section>
 
 {% if object.comments_are_open %}
-<section class="commentForm span-16 last">
+<section class="commentForm">
   {% render_comment_form for object %}
 </section>
 {% endif %}

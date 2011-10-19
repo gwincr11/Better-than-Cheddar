@@ -4,12 +4,12 @@ import django,socket
 
 
 APP_ROOT = os.path.dirname(os.path.realpath(__file__))
-print APP_ROOT
 # calculated paths for django and the site
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+THUMBNAIL_DEBUG = False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -131,6 +131,7 @@ TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'zinnia'),
     os.path.join(SITE_ROOT, 'mptt'),
     os.path.join(SITE_ROOT, 'tagging'),
+    os.path.join(SITE_ROOT, 'btc_app'),
 )
 
 INSTALLED_APPS = (
@@ -148,7 +149,8 @@ INSTALLED_APPS = (
 	'zinnia',
 	'tinymce',
 	'filebrowser',
-	
+	'sorl.thumbnail',
+	'btc_app',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -174,4 +176,4 @@ LOGGING = {
     }
 }
 
-TINYMCE_JS_URL = STATIC_URL +'grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js'
+

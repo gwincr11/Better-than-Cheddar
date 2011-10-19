@@ -1,4 +1,4 @@
-{% load zinnia_tags i18n %}
+{% load zinnia_tags i18n btc_tags %}
 {% get_tags as entry_tags %}
 <!DOCTYPE html>
 <html>
@@ -26,22 +26,69 @@
   </head>
   <body id="zinnia">
 	<div class="container">
-		<header class="span-24 last">
+		<header class="logo">
+			<hgroup>
 			<h1>
 			<a href="{% url zinnia_entry_archive_index %}" title="Better Than Cheddar" rel="home">
 			Better Than Cheddar
 			</a>
 			</h1>
+			<h2>
+			Midwest approved
+			</h2>
+			</hgroup>
 		</header>
+	<aside>
 		<nav class="categories">
-			{% get_categories %}
+			<section class="cats">
+			  <h3>{% trans "Categories" %}</h3>
+
+				{% get_categories %}
+			</section>
 			<form method="get" id="searchform" action="{% url zinnia_entry_search %}">
-			<label for="pattern">Search</label>
+			<label for="pattern"><h3>Search</h3></label>
 			<input type="text" value="{% trans "Keywords..." %}" name="pattern" id="searchbox" onfocus="this.value=''" />
 			<input type="submit" class="submitbutton" value="OK" />
 			</form>
+			<section class="authors">
+			  <h3>{% trans "Authors" %}</h3>
+			  {% get_authors %}
+			</section>
 		</nav>
-		<div id="content" class="hfeed span-16 border">
+
+		<section class="twitter">
+			<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+			<script>
+			new TWTR.Widget({
+			  version: 2,
+			  type: 'profile',
+			  rpp: 4,
+			  interval: 30000,
+			  width: 280,
+			  height: 200,
+			  theme: {
+			    shell: {
+			      background: 'transparent',
+			      color: '#595302'
+			    },
+			    tweets: {
+			      background: 'transparent',
+			      color: '#333',
+			      links: '#A64005'
+			    }
+			  },
+			  features: {
+			    scrollbar: false,
+			    loop: false,
+			    live: false,
+			    behavior: 'all'
+			  }
+			}).render().setUser('Better_Cheddar').start();
+			</script>
+			</section>
+
+		</aside>
+		<div id="content" class="hfeed">
 			{% block content %}
 			<h3>The content block need to be overrided!</h3>
 			{% endblock %}
@@ -51,7 +98,7 @@
 		{% endblock %}
 		
 		
-		<footer class="span-24 last">
+		<footer class="clear">
 		
 		</footer>
 	</div>
