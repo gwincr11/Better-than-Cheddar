@@ -333,3 +333,39 @@ box-shadow: 4px 4px 4px #ccc;
 .entry-image img {
 border: 1px solid #333;
 }
+
+.entry-widgets div {
+float: left;
+width: 235px;
+margin: 8px 20px;
+height: 100px;
+}
+
+#comments {
+margin-top: 20px;
+clear: both;
+}
+
+#comment-list li {
+clear: both;
+margin: 8px 0;
+float: left;
+list-style-type: none;
+width: 500px;
+}
+
+#comment-list .span-2 {
+float: left;
+margin-right: 5px;
+}
+
+.comment-body cite {
+font-size: 1em;
+text-align: left;
+
+}
+
+.commentForm {
+margin-top: 20px;
+clear: both;
+}
