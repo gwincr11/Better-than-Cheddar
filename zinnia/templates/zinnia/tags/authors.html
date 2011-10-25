@@ -3,8 +3,8 @@
 <ul>
   {% for author in authors %}
   <li class="vcard">
-    <a href="{% url zinnia_author_detail author.username %}"
-       title="{{ author.username }}" class="fn nickname url">{{ author.username }}</a>
+    <a href="{% url zinnia_author_detail author.first_name %}"
+       title="{{ author.first_name }}" class="fn nickname url">{{ author.first_name }}</a>
   </li>
   {% empty %}
   <li>
