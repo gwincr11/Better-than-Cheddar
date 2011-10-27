@@ -256,6 +256,17 @@ position: relative;
 left: -10px;
 }
 
+aside section {
+margin-bottom: 30px;
+
+}
+
+aside #blogroll ul {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
 nav {
 padding-top: 20px;
 width: 300px;

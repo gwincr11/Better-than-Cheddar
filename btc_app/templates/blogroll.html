@@ -1,0 +1,8 @@
+<section id="blogroll">
+	<h3>Blogs We Like</h3>
+	<ul>
+	{% for b in blogs %}
+	    <li><a href="{{ b.url }}" title="{{ b.title }}" ref="bookmark">{{ b.title }}</a></li>
+	{% endfor %}	
+	</ul>
+</section>

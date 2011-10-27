@@ -98,11 +98,12 @@ TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'zinnia'),
     os.path.join(SITE_ROOT, 'mptt'),
     os.path.join(SITE_ROOT, 'tagging'),
-    os.path.join(SITE_ROOT, 'btc_app'),
+    os.path.join(SITE_ROOT, 'btc_app/templates/'),
 )
 
 INSTALLED_APPS = (
 	'grappelli',
+	'btc_app',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
 	'django.contrib.sessions',
@@ -117,7 +118,6 @@ INSTALLED_APPS = (
 	'tinymce',
 	'filebrowser',
 	'sorl.thumbnail',
-	'btc_app',
 )
 
 # A sample logging configuration. The only tangible logging
