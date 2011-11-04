@@ -102,7 +102,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-	'grappelli',
+	#'grappelli',
 	'btc_app',
 	'django.contrib.auth',
 	'django.contrib.contenttypes',
@@ -116,7 +116,7 @@ INSTALLED_APPS = (
 	'mptt',
 	'zinnia',
 	'tinymce',
-	'filebrowser',
+	#'filebrowser',
 	'sorl.thumbnail',
 )
 

@@ -19,8 +19,8 @@ urlpatterns = patterns('',
     url(r'^', include('zinnia.urls')),
 	url(r'^comments/', include('django.contrib.comments.urls')),
 	url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^admin/filebrowser/', include('filebrowser.urls')),
-    url(r'^grappelli/', include('grappelli.urls')),
+    #url(r'^admin/filebrowser/', include('filebrowser.urls')),
+    #url(r'^grappelli/', include('grappelli.urls')),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,'show_indexes': True}),
 )
 urlpatterns += staticfiles_urlpatterns()
