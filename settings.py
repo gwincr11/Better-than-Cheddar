@@ -115,7 +115,7 @@ INSTALLED_APPS = (
 	'tagging',
 	'mptt',
 	'zinnia',
-	'tinymce',
+	#'tinymce',
 	#'filebrowser',
 	'sorl.thumbnail',
 )
